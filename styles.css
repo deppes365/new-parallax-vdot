@@ -386,6 +386,16 @@ section {
 	.nav-links .sub-links div a {
 		color: #fff;
 	}
+
+	.home-hero-content h1 {
+		font-size: 3.5rem;
+		text-align: center;
+	}
+
+	.home-hero-content p {
+		font-size: 1rem;
+		text-align: center;
+	}
 }
 
 /* Medium screen devices (768px and above) */
