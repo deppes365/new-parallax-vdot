@@ -161,6 +161,34 @@ header {
 
 .nav-bar.solid .nav-link {
   color: #4c4c4c;
+  position: relative;
+}
+
+.nav-bar.solid .nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%) scaleX(0);
+          transform: translateX(-50%) scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  width: 100%;
+  height: 2.5px;
+  background-color: #4c4c4c;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border-radius: 3px;
+}
+
+.nav-bar.solid .nav-link:hover::after {
+  -webkit-transform: translateX(-50%) scaleX(1);
+          transform: translateX(-50%) scaleX(1);
+}
+
+.nav-bar.solid .nav-link.active-link::after {
+  -webkit-transform: translateX(-50%) scaleX(1);
+          transform: translateX(-50%) scaleX(1);
 }
 
 .nav-bar.solid .hamburger > * {
@@ -170,8 +198,6 @@ header {
 .website-logo h2 {
   color: #fff;
   font-size: 1.5rem;
-  position: relative;
-  z-index: 15;
   -webkit-transition: inherit;
   transition: inherit;
 }
@@ -293,6 +319,16 @@ section {
   scroll-margin-top: var(--banner-height);
   padding-top: var(--nav-bar-height);
   background-color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+section .container {
+  padding: 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
 }
 
 /* Home Section */
@@ -388,7 +424,7 @@ section {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  bottom: 1rem;
+  bottom: 10rem;
 }
 
 .chevron.vert-move {
@@ -489,14 +525,9 @@ aside .container {
 }
 
 /* About Section */
-section {
-  position: relative;
-  z-index: 2;
-}
-
 footer {
   width: 100%;
-  height: 25vh;
+  min-height: 25vh;
   background-color: #4c4c4c;
   position: relative;
   z-index: 2;
@@ -573,9 +604,39 @@ footer {
   }
   .nav-link {
     font-size: 2rem;
+    color: #fff;
+    position: relative;
+  }
+  .nav-link::after {
+    height: 2.5px;
+    width: 100%;
+    position: absolute;
+    content: '';
+    bottom: -0.25rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%) scaleX(0);
+            transform: translateX(-50%) scaleX(0);
+    -webkit-transform-origin: left;
+            transform-origin: left;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+    background-color: #fff;
+  }
+  .nav-link.active-link::after {
+    -webkit-transform: translateX(-50%) scaleX(1);
+            transform: translateX(-50%) scaleX(1);
   }
   .hamburger {
     display: inline-block;
+  }
+  .nav-bar.solid .nav-link {
+    color: #fff;
+  }
+  .nav-bar.solid .nav-link.active-link::after {
+    background-color: #fff;
+  }
+  .nav-bar.solid .hamburger.active > * {
+    background-color: #fff;
   }
 }
 

@@ -125,6 +125,29 @@ header {
 
 	.nav-link {
 		color: #4c4c4c;
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: -0.25rem;
+			left: 50%;
+			transform: translateX(-50%) scaleX(0);
+			transform-origin: left;
+			width: 100%;
+			height: 2.5px;
+			background-color: #4c4c4c;
+			transition: 0.2s ease;
+			border-radius: 3px;
+		}
+
+		&:hover::after {
+			transform: translateX(-50%) scaleX(1);
+		}
+
+		&.active-link::after {
+			transform: translateX(-50%) scaleX(1);
+		}
 	}
 
 	.hamburger > * {
@@ -135,8 +158,6 @@ header {
 .website-logo h2 {
 	color: #fff;
 	font-size: 1.5rem;
-	position: relative;
-	z-index: 15;
 
 	transition: inherit;
 }
@@ -238,6 +259,16 @@ section {
 	scroll-margin-top: var(--banner-height);
 	padding-top: var(--nav-bar-height);
 	background-color: #fff;
+	position: relative;
+	z-index: 2;
+}
+
+section .container {
+	padding: 1rem;
+}
+
+.section-title {
+	font-size: 2rem;
 }
 
 /* Home Section */
@@ -280,7 +311,6 @@ section {
 
 #home .container {
 	display: flex;
-
 	justify-content: center;
 }
 
@@ -319,7 +349,7 @@ section {
 	position: fixed;
 	left: 50%;
 	transform: translateX(-50%);
-	bottom: 1rem;
+	bottom: 10rem;
 }
 
 .chevron.vert-move {
@@ -400,15 +430,12 @@ aside .container {
 }
 
 /* About Section */
-section {
-	position: relative;
-	z-index: 2;
-}
+
 
 // Footer Styling
 footer {
 	width: 100%;
-	height: 25vh;
+	min-height: 25vh;
 	background-color: #4c4c4c;
 	position: relative;
 	z-index: 2;
@@ -486,10 +513,43 @@ footer {
 
 	.nav-link {
 		font-size: 2rem;
+		color: #fff;
+		position: relative;
+
+		&::after {
+			height: 2.5px;
+			width: 100%;
+			position: absolute;
+			content: '';
+			bottom: -0.25rem;
+			left: 50%;
+			transform: translateX(-50%) scaleX(0);
+			transform-origin: left;
+			transition: 0.2s ease;
+			background-color: #fff;
+		}
+
+		&.active-link::after {
+			transform: translateX(-50%) scaleX(1);
+		}
 	}
 
 	.hamburger {
 		display: inline-block;
+	}
+
+	.nav-bar.solid {
+		.nav-link {
+			color: #fff;
+
+			&.active-link::after {
+				background-color: #fff;
+			}
+		}
+
+		.hamburger.active > * {
+			background-color: #fff;
+		}
 	}
 }
 

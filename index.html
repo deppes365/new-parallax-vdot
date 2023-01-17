@@ -59,10 +59,10 @@
 						<h2 class="animate__animated animate__fadeIn">Parallax</h2>
 					</div>
 					<ul class="nav-links inactive animate__animated animate__fadeIn">
-						<li><a class="nav-link active-link" href="#home">Home</a></li>
-						<li><a class="nav-link" href="#about">About</a></li>
-						<li><a class="nav-link" href="">Services</a></li>
-						<li><a class="nav-link" href="">Contact</a></li>
+						<li><a data-link="home" class="nav-link" href="#home">Home</a></li>
+						<li><a data-link="about" class="nav-link" href="#about">About</a></li>
+						<li><a data-link="services" class="nav-link" href="#services">Services</a></li>
+						<li><a data-link="contact"  class="nav-link" href="#contact">Contact</a></li>
 						<li class="sub-links">
 							<div>
 								<a href="">Find an Agency</a>
@@ -79,7 +79,8 @@
 			</div>
 		</header>
 
-		<main id="home">
+		<!-- Home Section -->
+		<section id="home">
 			<div class="background-img">
 				
 			</div>
@@ -115,12 +116,29 @@
 					</div>
 				</div>
 			</aside>
-		</main>
+		</section>
+
+		<!-- About Section -->
 		<section id="about">
 			<div class="container">
-				<h1>About</h1>
+				<h1 class="section-title">About</h1>
 			</div>
 		</section>
+
+		<!-- Services Section -->
+		<section id="services">
+			<div class="container">
+				<h1 class="section-title">Services</h1>
+			</div>
+		</section>
+
+		<!-- Contact Section: Maybe should be a modal -->
+		<section id="contact">
+			<div class="container">
+				<h1 class="section-title">Contact</h1>
+			</div>
+		</section>
+
 		<footer>
 
 		</footer>
