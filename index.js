@@ -58,17 +58,7 @@ menu.addEventListener('click', () => {
 	}
 });
 
-///// Functions /////
-function handleMobileMenu() {
-	hamburger.classList.toggle('active');
-	menu.classList.toggle('inactive');
 
-	if (hamburger.classList.contains('active')) {
-		document.querySelector('html').style.overflow = 'hidden';
-	} else {
-		document.querySelector('html').style.overflow = 'auto';
-	}
-}
 
 ///// Intersection Observers /////
 const sections = document.querySelectorAll('section');
@@ -110,3 +100,15 @@ const observer = new IntersectionObserver(entries => {
 }, options);
 
 sections.forEach(section => observer.observe(section));
+
+///// Functions /////
+function handleMobileMenu() {
+	hamburger.classList.toggle('active');
+	menu.classList.toggle('inactive');
+
+	if (hamburger.classList.contains('active')) {
+		document.querySelector('html').style.overflow = 'hidden';
+	} else {
+		document.querySelector('html').style.overflow = 'auto';
+	}
+}
