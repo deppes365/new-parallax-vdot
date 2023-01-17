@@ -208,6 +208,7 @@ section {
 	justify-content: center;
 	scroll-margin-top: var(--banner-height);
 	padding-top: var(--nav-bar-height);
+	background-color: #fff;
 }
 
 /* Home Section */
@@ -217,11 +218,11 @@ section {
 	margin-top: var(--banner-height);
 	scroll-margin-top: var(--banner-height);
 
-	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/images/home-bg.jpg');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+	// background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/images/home-bg.jpg');
+	// background-position: center;
+	// background-size: cover;
+	// background-repeat: no-repeat;
+	// background-attachment: fixed;
 
 	display: flex;
 	justify-content: center;
@@ -229,6 +230,33 @@ section {
 	flex-direction: column;
 	position: relative;
 	
+}
+
+#home .background-img {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+
+	
+
+	img {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+	}
+
+	.overlay {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		z-index: 2;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7, rgba(0, 0, 0, 0.7)));
+	}
 }
 
 #home .container {
@@ -288,7 +316,7 @@ aside {
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(255, 188, 32, 0.5);
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(7px);
 }
 
 aside .container {
@@ -366,6 +394,12 @@ section {
 
 /* Small screen devices (600px and above) */
 @media only screen and (max-width: 650px) {
+    section h1 {
+        font-size: 2rem;
+    }
+
+    
+
 	.banner .container {
 		justify-content: center;
 	}
@@ -416,7 +450,7 @@ section {
 		gap: 3rem;
 
 		background-color: rgba(0, 0, 0, 0.7);
-		backdrop-filter: blur(10px);
+		backdrop-filter: blur(7px);
 		transition: 0.3s ease;
 	}
 
