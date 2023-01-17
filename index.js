@@ -51,14 +51,7 @@ window.addEventListener('scroll', () => {
 // Handles mobile menu opening/closing
 hamburger.addEventListener('click', handleMobileMenu);
 
-menu.addEventListener('click', () => {
-	if (hamburger.classList.contains('active')) {
-		menu.classList.add('inactive');
-		hamburger.classList.remove('active');
-	}
-});
-
-
+menu.addEventListener('click', handleMobileMenu);
 
 ///// Intersection Observers /////
 const sections = document.querySelectorAll('section');
