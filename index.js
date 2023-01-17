@@ -3,6 +3,7 @@
 ///// Variables ////
 
 const banner = document.querySelector('.banner');
+const navBar = document.querySelector('.nav-bar')
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.nav-links');
 const aside = document.querySelector('aside');
@@ -31,8 +32,15 @@ window.addEventListener('scroll', () => {
 	const opacityPercent = Math.floor((window.scrollY / heroContentCenter) * 100);
 
 	if (window.scrollY <= heroContentCenter) {
+		// Change hero content's opacity on scroll
 		heroContent.style.opacity = `${100 - opacityPercent}%`;
-		console.log('changing');
+		
+
+		// Change nav bar to transparent
+		navBar.classList.contains('solid') && navBar.classList.remove('solid')
+	} else {
+		// Change nav bar to solid color
+		!navBar.classList.contains('solid') && navBar.classList.add('solid')
 	}
 });
 

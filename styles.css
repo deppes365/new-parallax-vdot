@@ -151,6 +151,8 @@ header {
 
 .nav-bar.solid {
   background: #fff;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .nav-bar.solid .website-logo h2 {
@@ -159,6 +161,10 @@ header {
 
 .nav-bar.solid .nav-link {
   color: #4c4c4c;
+}
+
+.nav-bar.solid .hamburger > * {
+  background-color: #4c4c4c;
 }
 
 .website-logo h2 {
@@ -204,9 +210,17 @@ header {
 
 .nav-link {
   text-decoration: none;
+  color: #858585;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.nav-link.active-link {
   color: #fff;
-  -webkit-transition: inherit;
-  transition: inherit;
+}
+
+.nav-link:hover {
+  color: #fff;
 }
 
 .hamburger {
@@ -378,8 +392,8 @@ section {
 }
 
 .chevron.vert-move {
-  -webkit-animation: mover 1s infinite  alternate;
-  animation: mover 1s infinite  alternate;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
 }
 
 aside {
