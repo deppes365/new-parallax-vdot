@@ -41,11 +41,11 @@ hamburger.addEventListener('click', () => {
 	hamburger.classList.toggle('active');
 	menu.classList.toggle('inactive');
 
-	// if(hamburger.classList.contains('active')) {
-	// 	document.querySelector('html').style.overflow = 'hidden';
-	// } else {
-	// 	document.querySelector('html').style.overflow = 'auto';
-	// }
+	if(hamburger.classList.contains('active')) {
+		document.querySelector('html').style.overflow = 'hidden';
+	} else {
+		document.querySelector('html').style.overflow = 'auto';
+	}
 });
 
 menu.addEventListener('click', () => {

@@ -145,6 +145,20 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.nav-bar.solid {
+  background: #fff;
+}
+
+.nav-bar.solid .website-logo h2 {
+  color: #4c4c4c;
+}
+
+.nav-bar.solid .nav-link {
+  color: #4c4c4c;
 }
 
 .website-logo h2 {
@@ -152,6 +166,8 @@ header {
   font-size: 1.5rem;
   position: relative;
   z-index: 15;
+  -webkit-transition: inherit;
+  transition: inherit;
 }
 
 .nav-bar .container {
@@ -189,6 +205,8 @@ header {
 .nav-link {
   text-decoration: none;
   color: #fff;
+  -webkit-transition: inherit;
+  transition: inherit;
 }
 
 .hamburger {
@@ -458,6 +476,14 @@ aside .container {
 
 /* About Section */
 section {
+  position: relative;
+  z-index: 2;
+}
+
+footer {
+  width: 100%;
+  height: 25vh;
+  background-color: #4c4c4c;
   position: relative;
   z-index: 2;
 }

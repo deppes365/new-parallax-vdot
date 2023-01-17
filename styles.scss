@@ -112,6 +112,20 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: 0.3s ease;
+	
+}
+
+.nav-bar.solid {
+	background: #fff;
+
+	.website-logo h2 {
+		color: #4c4c4c;
+	}
+
+	.nav-link {
+		color:#4c4c4c;
+	}
 }
 
 .website-logo h2 {
@@ -119,7 +133,11 @@ header {
 	font-size: 1.5rem;
 	position: relative;
 	z-index: 15;
+
+	transition: inherit
 }
+
+
 
 .nav-bar .container {
 	display: flex;
@@ -146,6 +164,7 @@ header {
 .nav-link {
 	text-decoration: none;
 	color: #fff;
+	transition: inherit;
 }
 
 .hamburger {
@@ -371,6 +390,15 @@ aside .container {
 
 /* About Section */
 section {
+	position: relative;
+	z-index: 2;
+}
+
+// Footer Styling
+footer {
+	width: 100%;
+	height: 25vh;
+	background-color: #4c4c4c;
 	position: relative;
 	z-index: 2;
 }
