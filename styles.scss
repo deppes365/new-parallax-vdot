@@ -437,13 +437,15 @@ aside .container {
   display: flex;
   // justify-content: center;
   // align-items: center;
+  overflow-x: hidden;
 }
 
 .carousel-wrapper.container {
-  min-height: 50vh;
+  height: 50vh;
   display: flex;
   padding: 0;
   align-self: center;
+
 }
 
 .carousel-controls-wrapper {
@@ -451,6 +453,9 @@ aside .container {
 
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 10;
+  
 }
 
 .carousel-controls-info {
@@ -469,15 +474,24 @@ aside .container {
     background-color: #ffbc20;
     color: #000;
     border-radius: 30px;
+    transition: 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+
+      transform: scale(0.95);
+    }
   }
 }
 
 .carousel-controls {
   flex: 1;
+  min-width: 350px;
   display: flex;
   gap: 0.5rem;
   align-items: center;
   padding: 2rem 0;
+  
 
   .control-btn {
     padding: 1rem;
@@ -489,6 +503,12 @@ aside .container {
     align-items: center;
     border-radius: 50%;
     cursor: pointer;
+    transition: 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      transform: scale(0.95);
+    }
 
     i {
       font-size: 1.5rem;
@@ -506,6 +526,42 @@ aside .container {
 
 .carousel {
   flex: 3;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: 0.5s ease;
+}
+
+.carousel-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 300px;
+
+  height: 100%;
+  border: 2px solid green;
+  transition: 0.5s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+
+  position: relative;
+  transition: 0.3s ease;
+
+  
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &.scale-card {
+    opacity: 0;
+    transform: scaleX(0);
+    visibility: hidden;
+    transform-origin: right;
+  }
 }
 
 // Footer Styling
@@ -638,6 +694,8 @@ footer {
 }
 
 /* Animations */
+
+// Bounces arrow on home page up and down
 @keyframes mover {
   0% {
     transform: translateY(0);

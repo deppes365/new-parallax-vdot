@@ -528,10 +528,11 @@ aside .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow-x: hidden;
 }
 
 .carousel-wrapper.container {
-  min-height: 50vh;
+  height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -551,6 +552,8 @@ aside .container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
+  z-index: 10;
 }
 
 .carousel-controls-info {
@@ -572,12 +575,22 @@ aside .container {
   background-color: #ffbc20;
   color: #000;
   border-radius: 30px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-controls-info a:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .carousel-controls {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  min-width: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -604,6 +617,15 @@ aside .container {
           align-items: center;
   border-radius: 50%;
   cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-controls .control-btn:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .carousel-controls .control-btn i {
@@ -624,6 +646,57 @@ aside .container {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1.5rem;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.carousel-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 300px;
+  max-width: 300px;
+  height: 100%;
+  border: 2px solid green;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  position: relative;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.carousel-card:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.carousel-card.scale-card {
+  opacity: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  visibility: hidden;
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 
 footer {
