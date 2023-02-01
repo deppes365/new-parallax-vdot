@@ -1,6 +1,7 @@
 :root {
   --banner-height: 1.75rem;
   --nav-bar-height: 3rem;
+  --gray: #4c4c4c;
 }
 
 /* Animations are coming from https://animate.style/ */
@@ -101,7 +102,7 @@ header {
 }
 
 .banner-links a {
-  color: #767676;
+  color: var(--gray);
 }
 
 /* Nav bar */
@@ -120,11 +121,11 @@ header {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
   .website-logo h2 {
-    color: #4c4c4c;
+    color: var(--gray);
   }
 
   .nav-link {
-    color: #4c4c4c;
+    color: var(--gray);
     position: relative;
 
     &:after {
@@ -136,7 +137,7 @@ header {
       transform-origin: left;
       width: 100%;
       height: 2.5px;
-      background-color: #4c4c4c;
+      background-color: var(--gray);
       transition: 0.2s ease;
       border-radius: 3px;
     }
@@ -151,7 +152,7 @@ header {
   }
 
   .hamburger > * {
-    background-color: #4c4c4c;
+    background-color: var(--gray);
   }
 }
 
@@ -278,12 +279,6 @@ section .container {
   margin-top: var(--banner-height);
   scroll-margin-top: var(--banner-height);
 
-  // background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/images/home-bg.jpg');
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -399,13 +394,13 @@ aside .container {
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  color: #000;
+  color: var(--gray);
 }
 
 .aside-content .button:after {
   position: absolute;
   content: '';
-  background-color: #000;
+  background-color: var(--gray);
   width: 200%;
   height: 200%;
   top: 50%;
@@ -433,35 +428,50 @@ aside .container {
 
 // Projects
 
+#projects {
+  overflow-x: hidden;
+  height: auto;
+  min-height: auto;
+  padding: 3rem 0;
+}
+
 #projects > .container {
   display: flex;
+  height: auto;
+  
   // justify-content: center;
   // align-items: center;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 .carousel-wrapper.container {
-  height: 50vh;
-  display: flex;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 2fr 1fr;
+  column-gap: 3rem;
   padding: 0;
-  align-self: center;
-
+  
 }
 
 .carousel-controls-wrapper {
   flex: 1;
-
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 10;
-  
 }
 
 .carousel-controls-info {
   padding: 1rem 0;
   flex: 2;
 
+  grid-column: 1 / span 1;
+  grid-row:  1 / span 1;
+
+  position: relative;
+  z-index: 5;
+ 
   h2 {
     font-size: 1.75rem;
     margin: 0.5rem 0 2rem 0;
@@ -478,7 +488,6 @@ aside .container {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
     &:hover {
-
       transform: scale(0.95);
     }
   }
@@ -491,7 +500,14 @@ aside .container {
   gap: 0.5rem;
   align-items: center;
   padding: 2rem 0;
-  
+
+  grid-column: 1 / span 1;
+  grid-row:  2 / span 1;
+
+  position: relative;
+  z-index: 5;
+
+
 
   .control-btn {
     padding: 1rem;
@@ -524,36 +540,65 @@ aside .container {
   }
 }
 
+
 .carousel {
   flex: 3;
   height: 100%;
+  width: 100%; 
+  
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1.5rem;
   transition: 0.5s ease;
+  position: relative;
+
+
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
+  
 }
 
 .carousel-card {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
   flex: 1;
-  min-width: 300px;
-  max-width: 300px;
+  width: 300px;
 
   height: 100%;
-  border: 2px solid green;
+  min-height: 400px;
+  background-color: #4c4c4c;
+
   transition: 0.5s;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 30px;
 
   position: relative;
+  z-index: 1;
+
   transition: 0.3s ease;
 
-  
+  overflow: hidden;
+
+  padding: 1rem;
+  text-decoration: none;
 
   &:hover {
     transform: scale(1.2);
+    z-index: 2;
+
+    .overlay {
+      opacity: 1;
+    }
+  }
+
+  &.currentCard {
+    transform: scale(1.2);
+    z-index: 2;
+
+    .overlay {
+      opacity: 1;
+    }
   }
 
   &.scale-card {
@@ -561,6 +606,34 @@ aside .container {
     transform: scaleX(0);
     visibility: hidden;
     transform-origin: right;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 2;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 3;
+    color: #fff;
   }
 }
 
@@ -575,50 +648,20 @@ footer {
 
 /* Media Queries */
 
-/* For extremely small screen devices (595px and below) */
-@media only screen and (max-width: 595px) {
+/* Extra big screen devices (1200px and above) */
+@media only screen and (max-width: 1200px) {
 }
 
-/* Small screen devices (600px and above) */
-@media only screen and (max-width: 650px) {
-  section h1 {
-    font-size: 2rem;
-  }
-
-  .banner .container {
-    justify-content: center;
-  }
-  .banner-links {
-    display: none;
-  }
-
-  .nav-links .sub-links {
-    display: inline-block;
-    margin-top: 8rem;
-  }
-
-  .nav-links .sub-links div {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .nav-links .sub-links div a {
-    color: #fff;
-  }
-
-  .home-hero-content h1 {
-    font-size: 3.5rem;
-    text-align: center;
-  }
-
-  .home-hero-content p {
-    font-size: 1rem;
-    text-align: center;
-  }
+/* Big screen devices (889px and above) */
+@media only screen and (max-width: 889px) {
 }
 
 /* Medium screen devices (768px and above) */
 @media only screen and (max-width: 768px) {
+  .nav-bar.solid {
+    background-color: red;
+  }
+
   .nav-links {
     position: fixed;
     z-index: 10;
@@ -683,14 +726,98 @@ footer {
       background-color: #fff;
     }
   }
+
+  .carousel-wrapper.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .carousel-card {
+    min-height: 450px;
+    min-width: 300px;
+  }
+
+  .carousel-controls-info {
+    order: 1;
+   
+    width: 100%;
+    text-align: center;
+  }
+
+  .carousel-controls {
+    order: 3;
+    justify-content: center;
+  }
+
+  .carousel {
+    order: 2;
+  }
 }
 
-/* Big screen devices (889px and above) */
-@media only screen and (max-width: 889px) {
+/* Small screen devices (600px and above) */
+@media only screen and (max-width: 650px) {
+  .nav-bar.solid {
+    background-color: green;
+  }
+  section h1 {
+    font-size: 2rem;
+  }
+
+  .banner .container {
+    justify-content: center;
+  }
+  .banner-links {
+    display: none;
+  }
+
+  .nav-links .sub-links {
+    display: inline-block;
+    margin-top: 8rem;
+  }
+
+  .nav-links .sub-links div {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links .sub-links div a {
+    color: #fff;
+  }
+
+  .home-hero-content h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .home-hero-content p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .carousel {
+    left: 34%;
+  }
 }
 
-/* Extra big screen devices (1200px and above) */
-@media only screen and (max-width: 1200px) {
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .carousel {
+    left: 32%;
+  }
+
+}
+
+@media only screen and (max-width: 490px) {
+  .carousel {
+    left: 30%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .carousel {
+    left: 8%;
+  }
 }
 
 /* Animations */

@@ -1,6 +1,7 @@
 :root {
   --banner-height: 1.75rem;
   --nav-bar-height: 3rem;
+  --gray: #4c4c4c;
 }
 
 /* Animations are coming from https://animate.style/ */
@@ -127,7 +128,7 @@ header {
 }
 
 .banner-links a {
-  color: #767676;
+  color: var(--gray);
 }
 
 /* Nav bar */
@@ -156,11 +157,11 @@ header {
 }
 
 .nav-bar.solid .website-logo h2 {
-  color: #4c4c4c;
+  color: var(--gray);
 }
 
 .nav-bar.solid .nav-link {
-  color: #4c4c4c;
+  color: var(--gray);
   position: relative;
 }
 
@@ -175,7 +176,7 @@ header {
           transform-origin: left;
   width: 100%;
   height: 2.5px;
-  background-color: #4c4c4c;
+  background-color: var(--gray);
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
   border-radius: 3px;
@@ -192,7 +193,7 @@ header {
 }
 
 .nav-bar.solid .hamburger > * {
-  background-color: #4c4c4c;
+  background-color: var(--gray);
 }
 
 .website-logo h2 {
@@ -490,13 +491,13 @@ aside .container {
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  color: #000;
+  color: var(--gray);
 }
 
 .aside-content .button:after {
   position: absolute;
   content: '';
-  background-color: #000;
+  background-color: var(--gray);
   width: 200%;
   height: 200%;
   top: 50%;
@@ -524,21 +525,31 @@ aside .container {
   color: #fff;
 }
 
+#projects {
+  overflow-x: hidden;
+  height: auto;
+  min-height: auto;
+  padding: 3rem 0;
+}
+
 #projects > .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow-x: hidden;
+  height: auto;
 }
 
 .carousel-wrapper.container {
-  height: 50vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  -ms-grid-rows: 2fr 1fr;
+      grid-template-rows: 2fr 1fr;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
   padding: 0;
-  -ms-flex-item-align: center;
-      align-self: center;
 }
 
 .carousel-controls-wrapper {
@@ -561,6 +572,14 @@ aside .container {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
+  position: relative;
+  z-index: 5;
 }
 
 .carousel-controls-info h2 {
@@ -599,6 +618,14 @@ aside .container {
       -ms-flex-align: center;
           align-items: center;
   padding: 2rem 0;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  position: relative;
+  z-index: 5;
 }
 
 .carousel-controls .control-btn {
@@ -647,47 +674,74 @@ aside .container {
       -ms-flex: 3;
           flex: 3;
   height: 100%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 1.5rem;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  position: relative;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / span 1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
 }
 
 .carousel-card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-width: 300px;
-  max-width: 300px;
+  width: 300px;
   height: 100%;
-  border: 2px solid green;
+  min-height: 400px;
+  background-color: #4c4c4c;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   border-radius: 30px;
   position: relative;
+  z-index: 1;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+  overflow: hidden;
+  padding: 1rem;
+  text-decoration: none;
 }
 
 .carousel-card:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+  z-index: 2;
+}
+
+.carousel-card:hover .overlay {
+  opacity: 1;
+}
+
+.carousel-card.currentCard {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  z-index: 2;
+}
+
+.carousel-card.currentCard .overlay {
+  opacity: 1;
 }
 
 .carousel-card.scale-card {
@@ -699,6 +753,36 @@ aside .container {
           transform-origin: right;
 }
 
+.carousel-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  z-index: 2;
+}
+
+.carousel-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carousel-card .card-content {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+}
+
 footer {
   width: 100%;
   min-height: 25vh;
@@ -708,45 +792,13 @@ footer {
 }
 
 /* Media Queries */
-/* For extremely small screen devices (595px and below) */
-/* Small screen devices (600px and above) */
-@media only screen and (max-width: 650px) {
-  section h1 {
-    font-size: 2rem;
-  }
-  .banner .container {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .banner-links {
-    display: none;
-  }
-  .nav-links .sub-links {
-    display: inline-block;
-    margin-top: 8rem;
-  }
-  .nav-links .sub-links div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 1.5rem;
-  }
-  .nav-links .sub-links div a {
-    color: #fff;
-  }
-  .home-hero-content h1 {
-    font-size: 3.5rem;
-    text-align: center;
-  }
-  .home-hero-content p {
-    font-size: 1rem;
-    text-align: center;
-  }
-}
-
+/* Extra big screen devices (1200px and above) */
+/* Big screen devices (889px and above) */
 /* Medium screen devices (768px and above) */
 @media only screen and (max-width: 768px) {
+  .nav-bar.solid {
+    background-color: red;
+  }
   .nav-links {
     position: fixed;
     z-index: 10;
@@ -812,10 +864,103 @@ footer {
   .nav-bar.solid .hamburger.active > * {
     background-color: #fff;
   }
+  .carousel-wrapper.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 5rem;
+  }
+  .carousel-card {
+    min-height: 450px;
+    min-width: 300px;
+  }
+  .carousel-controls-info {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 100%;
+    text-align: center;
+  }
+  .carousel-controls {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .carousel {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
 }
 
-/* Big screen devices (889px and above) */
-/* Extra big screen devices (1200px and above) */
+/* Small screen devices (600px and above) */
+@media only screen and (max-width: 650px) {
+  .nav-bar.solid {
+    background-color: green;
+  }
+  section h1 {
+    font-size: 2rem;
+  }
+  .banner .container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .banner-links {
+    display: none;
+  }
+  .nav-links .sub-links {
+    display: inline-block;
+    margin-top: 8rem;
+  }
+  .nav-links .sub-links div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links .sub-links div a {
+    color: #fff;
+  }
+  .home-hero-content h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  .home-hero-content p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .carousel {
+    left: 34%;
+  }
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .carousel {
+    left: 32%;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .carousel {
+    left: 30%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .carousel {
+    left: 8%;
+  }
+}
+
 /* Animations */
 @-webkit-keyframes mover {
   0% {

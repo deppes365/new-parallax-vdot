@@ -4,7 +4,6 @@ let screenCenter = window.innerWidth / 2
 
 window.addEventListener('resize', () => {
   screenCenter = window.innerWidth / 2
-  
 })
 
 const carouselBtnPrev = document.querySelector('.control-btn.prev-btn')
@@ -13,46 +12,59 @@ const carousel = document.querySelector('.carousel')
 const carouselCards = document.querySelectorAll('.carousel-card')
 const counter = document.querySelector('.carousel-counter .counter')
 
-
 let currentCard = 0
 
 updateCounter()
 
 carouselBtnPrev.addEventListener('click', () => {
-  
+  carouselCards[currentCard].classList.remove('currentCard')
+
   currentCard -= 1
+
   if (currentCard < 0) {
     currentCard = carouselCards.length - 1
-    carouselCards.forEach(card => card.classList.add('scale-card'))
+    carouselCards.forEach((card) => card.classList.add('scale-card'))
   }
-  carouselCards[currentCard].classList.remove('scale-card')
 
-  const translatePercent = (carousel.clientWidth / carouselCards.length) / carousel.clientWidth * 100;
+  carouselCards[currentCard].classList.remove('scale-card')
+  carouselCards[currentCard].classList.add('currentCard')
+
+  const translatePercent =
+    (carousel.clientWidth / carouselCards.length / carousel.clientWidth) * 100
 
   carousel.style.transform = `translateX(-${translatePercent * currentCard}%)`
- 
 
   updateCounter()
 })
 
 carouselBtnNext.addEventListener('click', () => {
-  
+  carouselCards[currentCard].classList.remove('currentCard')
   currentCard += 1
 
   if (currentCard > carouselCards.length - 1) {
     currentCard = 0
-    
-    for(let i = carouselCards.length; i > 0; i--) {
-        carouselCards[i - 1].classList.remove('scale-card')
+
+    for (let i = carouselCards.length; i > 0; i--) {
+      carouselCards[i - 1].classList.remove('scale-card')
+      carouselCards[i - 1].classList.remove('currentCard')
     }
-   
 
     carousel.style.transform = 'translateX(0)'
+
+    setTimeout(() => {
+      carouselCards[currentCard].classList.add('currentCard')
+    }, 300)
+
     updateCounter()
     return
   }
-  const translatePercent = (carousel.clientWidth / carouselCards.length) / carousel.clientWidth * 100;
+
+  carouselCards[currentCard].classList.add('currentCard')
+  
+  const translatePercent =
+    (carousel.clientWidth / carouselCards.length / carousel.clientWidth) * 100
   carouselCards[currentCard - 1].classList.add('scale-card')
+
   carousel.style.transform = `translateX(-${translatePercent * currentCard}%)`
 
   updateCounter()
@@ -71,6 +83,7 @@ function scaleCard(direction) {
   if (direction === 'next') {
     carouselCards[current].classList.add('scale-card')
   }
+
   if (direction === 'prev') {
     carouselCards[current].classList.remove('scale-card')
   }
