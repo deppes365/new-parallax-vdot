@@ -901,8 +901,8 @@ aside .container {
 .carousel-card .card-content h2 {
   position: absolute;
   top: 1rem;
-  -webkit-transform: translateY(400px);
-          transform: translateY(400px);
+  -webkit-transform: translateY(375px);
+          transform: translateY(375px);
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   width: 100%;
