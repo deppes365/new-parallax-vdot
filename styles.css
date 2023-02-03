@@ -1024,6 +1024,13 @@ footer {
 }
 
 /* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .carousel-card {
+    max-width: 300px;
+    max-height: 450px;
+  }
+}
+
 /* Animations */
 @-webkit-keyframes mover {
   0% {
