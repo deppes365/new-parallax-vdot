@@ -510,6 +510,7 @@ aside .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #4c4c4c;
 }
 
 #projects > .container {
@@ -563,10 +564,17 @@ aside .container {
   top: 5rem;
   z-index: 10;
 
+  h3 {
+    color: #fff;
+  }
+
   h2 {
     font-size: 1.75rem;
     margin: 0.5rem 0 2rem 0;
+    color: #fff;
   }
+
+  
 
   a {
     text-decoration: none;
@@ -577,6 +585,7 @@ aside .container {
     border-radius: 30px;
     transition: 0.2s ease;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    color: #fff;
 
     &:hover {
       transform: scale(0.95);
@@ -618,11 +627,13 @@ aside .container {
 
     i {
       font-size: 1.5rem;
+      color: #fff;
     }
   }
 
   .carousel-counter {
     display: flex;
+    color: #fff;
 
     p {
       font-size: 1.2rem;

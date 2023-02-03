@@ -8,6 +8,12 @@ let currentCard = 0
 
 carouselCards[currentCard].classList.add('scaleCard')
 
+carouselCards.forEach((card, i) => {
+    card.setAttribute('data-index', i)
+})
+
+// carouselCards
+
 let cardWidth = carouselCards[0].getBoundingClientRect().width
 
 let widthOfCards =
