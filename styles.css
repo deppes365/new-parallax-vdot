@@ -548,26 +548,17 @@ aside .container {
   display: -ms-flexbox;
   display: flex;
   height: auto;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .carousel-wrapper-container {
   height: auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-  -ms-grid-rows: 2fr 1fr;
-      grid-template-rows: 2fr 1fr;
-  -webkit-column-gap: 3rem;
-          column-gap: 3rem;
-  padding: 0;
-  position: relative;
-}
-
-.carousel-controls-wrapper {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -575,20 +566,22 @@ aside .container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  position: relative;
+  width: 100%;
 }
 
 .carousel-controls-info {
   padding: 1rem 0;
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / span 1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1 / span 1;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 5rem;
   z-index: 10;
 }
 
@@ -616,9 +609,6 @@ aside .container {
 }
 
 .carousel-controls {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   min-width: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -628,14 +618,11 @@ aside .container {
       -ms-flex-align: center;
           align-items: center;
   padding: 2rem 0;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / span 1;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2 / span 1;
   z-index: 5;
-  position: relative;
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+  width: 300px;
 }
 
 .carousel-controls .control-btn {
@@ -680,16 +667,14 @@ aside .container {
 }
 
 .carousel {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
   height: 100%;
-  width: auto !important;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -699,12 +684,6 @@ aside .container {
   transition: 0.5s ease;
   position: relative;
   z-index: 0;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2 / span 1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  grid-row: 1 / span 2;
 }
 
 .carousel-card {
@@ -738,7 +717,7 @@ aside .container {
 .carousel-card:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  z-index: 2;
+  z-index: 6;
 }
 
 .carousel-card:hover .overlay {
@@ -771,23 +750,18 @@ aside .container {
           transition-delay: 0.5s;
 }
 
-.carousel-card.currentCard {
+.carousel-card.scaleCard {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  z-index: 2;
+  z-index: 5;
 }
 
-.carousel-card.currentCard .overlay {
-  opacity: 1;
-}
-
-.carousel-card.scale-card {
-  opacity: 0;
+.carousel-card.hideCard {
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
-  visibility: hidden;
   -webkit-transform-origin: right;
           transform-origin: right;
+  opacity: 0;
 }
 
 .carousel-card .overlay {
@@ -866,7 +840,51 @@ footer {
 
 /* Media Queries */
 /* Extra big screen devices (1200px and above) */
+@media only screen and (max-width: 1050px) {
+  .carousel-controls-info {
+    position: relative;
+    top: 0;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+  .carousel-controls {
+    position: relative;
+    bottom: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 3rem;
+  }
+}
+
 /* Big screen devices (889px and above) */
+@media only screen and (max-width: 889px) {
+  #projects .container {
+    padding: 0;
+  }
+  .carousel-wrapper-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .carousel-card {
+    min-height: 450px;
+    min-width: 300px;
+  }
+  .carousel-controls-info {
+    width: 100vw;
+    padding: 0;
+    text-align: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
 /* Medium screen devices (768px and above) */
 @media only screen and (max-width: 768px) {
   .nav-bar.solid {
@@ -937,51 +955,6 @@ footer {
   .nav-bar.solid .hamburger.active > * {
     background-color: #fff;
   }
-  #projects .container {
-    padding: 0;
-  }
-  .carousel-wrapper-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 5rem;
-  }
-  .carousel-card {
-    min-height: 450px;
-    min-width: 300px;
-  }
-  .carousel-controls-info {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    width: 100vw;
-    padding: 0;
-    text-align: center;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-  .carousel-controls {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 100vw;
-  }
-  .carousel {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-  }
 }
 
 /* Small screen devices (600px and above) */
@@ -1028,6 +1001,13 @@ footer {
   .carousel-card {
     max-width: 300px;
     max-height: 450px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .carousel-card {
+    width: 275px !important;
+    height: 200px;
   }
 }
 

@@ -443,36 +443,52 @@ aside .container {
 #projects > .container {
   display: flex;
   height: auto;
+  width: 100%;
 
-  // justify-content: center;
-  // align-items: center;
+  justify-content: center;
+  align-items: center;
   // overflow-x: hidden;
 }
 
 .carousel-wrapper-container {
   height: auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 1fr;
-  column-gap: 3rem;
-  padding: 0;
-  position: relative;
-}
+  // display: grid;
+  // grid-template-columns: 1fr 2fr;
+  // grid-template-rows: 2fr 1fr;
+  // column-gap: 3rem;
 
-.carousel-controls-wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  position: relative;
+  width: 100%;
 }
+
+// .carousel-controls-wrapper {
+//   // flex: 1;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   position: absolute;
+//   width: 25vw;
+//   height: 100%;
+//   border: 1px solid red;
+//   left: 0;
+// }
 
 .carousel-controls-info {
   padding: 1rem 0;
-  flex: 2;
+  // flex: 2;
 
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
+  // grid-column: 1 / span 1;
+  // grid-row: 1 / span 1;
 
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 5rem;
   z-index: 10;
 
   h2 {
@@ -497,17 +513,20 @@ aside .container {
 }
 
 .carousel-controls {
-  flex: 1;
+  // flex: 1;
   min-width: 350px;
   display: flex;
   gap: 0.5rem;
   align-items: center;
   padding: 2rem 0;
 
-  grid-column: 1 / span 1;
-  grid-row: 2 / span 1;
+
   z-index: 5;
-  position: relative;
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+
+  width: 300px;
 
   .control-btn {
     padding: 1rem;
@@ -541,13 +560,12 @@ aside .container {
 }
 
 .carousel {
-  flex: 3;
+  // flex: 3;
   height: 100%;
-  width: auto !important;
-
+  width: auto;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding: 0 2rem;
   gap: 2rem;
@@ -555,8 +573,8 @@ aside .container {
   position: relative;
   z-index: 0;
 
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 2;
+  // grid-column: 2 / span 1;
+  // grid-row: 1 / span 2;
 }
 
 .carousel-card {
@@ -581,13 +599,11 @@ aside .container {
 
   overflow: hidden;
 
- 
   text-decoration: none;
-  
 
   &:hover {
     transform: scale(1.2);
-    z-index: 2;
+    z-index: 6;
 
     .overlay {
       opacity: 1;
@@ -595,10 +611,8 @@ aside .container {
     }
 
     .card-content {
-
       h3 {
         transform: translateY(0);
-        
 
         &::after {
           transform: scaleX(1);
@@ -606,32 +620,35 @@ aside .container {
           transition-delay: 0.5s;
         }
       }
-      
+
       p {
         // transform: translateX(0);
         filter: blur(0);
         opacity: 1;
         transition: 0.8s ease;
-       transition-delay: 0.5s;
-        
+        transition-delay: 0.5s;
       }
     }
   }
 
-  &.currentCard {
-    transform: scale(1.2);
-    z-index: 2;
+  // &.currentCard {
+  //   transform: scale(1.2);
+  //   z-index: 2;
 
-    .overlay {
-      opacity: 1;
-    }
+  //   .overlay {
+  //     opacity: 1;
+  //   }
+  // }
+
+  &.scaleCard {
+    transform: scale(1.2);
+    z-index: 5;
   }
 
-  &.scale-card {
-    opacity: 0;
+  &.hideCard {
     transform: scaleX(0);
-    visibility: hidden;
     transform-origin: right;
+    opacity: 0;
   }
 
   .overlay {
@@ -644,7 +661,6 @@ aside .container {
     opacity: 0;
     transition: 0.3s ease;
     z-index: 2;
-    
   }
 
   img {
@@ -669,7 +685,6 @@ aside .container {
       position: relative;
       transform: translateY(450px);
       transition: 0.5s ease;
-      
 
       &::after {
         position: absolute;
@@ -692,7 +707,6 @@ aside .container {
       opacity: 0;
       margin-top: 1rem;
     }
-
   }
 }
 
@@ -711,8 +725,59 @@ footer {
 @media only screen and (max-width: 1200px) {
 }
 
+
+@media only screen and (max-width: 1050px) {
+  .carousel-controls-info {
+    position: relative;
+    top: 0;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+
+  .carousel-controls {
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+    margin-top: 3rem;
+    
+  }
+}
+
 /* Big screen devices (889px and above) */
 @media only screen and (max-width: 889px) {
+  #projects .container {
+    padding: 0;
+  }
+
+  .carousel-wrapper-container {
+    display: flex;
+    flex-direction: column;
+    // gap: 5rem;
+  }
+
+  .carousel-card {
+    min-height: 450px;
+    min-width: 300px;
+  }
+
+  .carousel-controls-info {
+    // order: 1;
+    width: 100vw;
+    padding: 0;
+    text-align: center;
+    flex: 1;
+  }
+
+  .carousel-controls {
+    // order: 3;
+    // justify-content: center;
+    // align-items: center;
+    // width: 100vw;
+  }
+
+  .carousel {
+    // order: 2;
+  }
 }
 
 /* Medium screen devices (768px and above) */
@@ -785,40 +850,6 @@ footer {
       background-color: #fff;
     }
   }
-
-  #projects .container {
-    padding: 0;
-  }
-
-  .carousel-wrapper-container {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-  }
-
-  .carousel-card {
-    min-height: 450px;
-    min-width: 300px;
-  }
-
-  .carousel-controls-info {
-    order: 1;
-    width: 100vw;
-    padding: 0;
-    text-align: center;
-    flex: 1;
-  }
-
-  .carousel-controls {
-    order: 3;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-  }
-
-  .carousel {
-    order: 2;
-  }
 }
 
 /* Small screen devices (600px and above) */
@@ -860,8 +891,6 @@ footer {
     font-size: 1rem;
     text-align: center;
   }
-
- 
 }
 
 /* For extremely small screen devices (595px and below) */
@@ -876,6 +905,13 @@ footer {
 }
 
 @media only screen and (max-width: 400px) {
+
+  .carousel-card {
+
+    width: 275px !important;
+    height: 200px;
+  }
+
 }
 
 /* Animations */
