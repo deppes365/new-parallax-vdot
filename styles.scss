@@ -2,6 +2,7 @@
   --banner-height: 1.75rem;
   --nav-bar-height: 3rem;
   --gray: #4c4c4c;
+  --orange: #ffbc20;
 }
 
 /* Animations are coming from https://animate.style/ */
@@ -433,33 +434,35 @@ aside .container {
   height: auto;
   min-height: auto;
   padding: 3rem 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #projects > .container {
   display: flex;
   height: auto;
-  
+
   // justify-content: center;
   // align-items: center;
   // overflow-x: hidden;
 }
 
-.carousel-wrapper.container {
+.carousel-wrapper-container {
   height: auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 2fr 1fr;
   column-gap: 3rem;
   padding: 0;
-  
+  position: relative;
 }
 
 .carousel-controls-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
-  position: relative;
-  z-index: 10;
 }
 
 .carousel-controls-info {
@@ -467,11 +470,11 @@ aside .container {
   flex: 2;
 
   grid-column: 1 / span 1;
-  grid-row:  1 / span 1;
+  grid-row: 1 / span 1;
 
   position: relative;
-  z-index: 5;
- 
+  z-index: 10;
+
   h2 {
     font-size: 1.75rem;
     margin: 0.5rem 0 2rem 0;
@@ -481,7 +484,7 @@ aside .container {
     text-decoration: none;
     display: inline-block;
     padding: 1rem;
-    background-color: #ffbc20;
+    background-color: var(--orange);
     color: #000;
     border-radius: 30px;
     transition: 0.2s ease;
@@ -502,18 +505,15 @@ aside .container {
   padding: 2rem 0;
 
   grid-column: 1 / span 1;
-  grid-row:  2 / span 1;
-
-  position: relative;
+  grid-row: 2 / span 1;
   z-index: 5;
-
-
+  position: relative;
 
   .control-btn {
     padding: 1rem;
     width: 50px;
     height: 50px;
-    background-color: #ffbc20;
+    background-color: var(--orange);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -540,33 +540,33 @@ aside .container {
   }
 }
 
-
 .carousel {
   flex: 3;
   height: 100%;
-  width: 100%; 
-  
+  width: auto !important;
+
+
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  gap: 1.5rem;
+  padding: 0 2rem;
+  gap: 2rem;
   transition: 0.5s ease;
   position: relative;
-
+  z-index: 0;
 
   grid-column: 2 / span 1;
   grid-row: 1 / span 2;
-  
 }
 
 .carousel-card {
   display: flex;
   align-items: flex-end;
   flex: 1;
-  width: 300px;
+  width: 350px;
 
   height: 100%;
-  min-height: 400px;
+  min-height: 500px;
   background-color: #4c4c4c;
 
   transition: 0.5s;
@@ -575,13 +575,15 @@ aside .container {
 
   position: relative;
   z-index: 1;
+  background-color: transparent;
 
   transition: 0.3s ease;
 
   overflow: hidden;
 
-  padding: 1rem;
+ 
   text-decoration: none;
+  
 
   &:hover {
     transform: scale(1.2);
@@ -589,6 +591,30 @@ aside .container {
 
     .overlay {
       opacity: 1;
+      backdrop-filter: blur(5px);
+    }
+
+    .card-content {
+
+      h3 {
+        transform: translateY(0);
+        
+
+        &::after {
+          transform: scaleX(1);
+          transition: 0.8s ease;
+          transition-delay: 0.5s;
+        }
+      }
+      
+      p {
+        // transform: translateX(0);
+        filter: blur(0);
+        opacity: 1;
+        transition: 0.8s ease;
+       transition-delay: 0.5s;
+        
+      }
     }
   }
 
@@ -618,6 +644,7 @@ aside .container {
     opacity: 0;
     transition: 0.3s ease;
     z-index: 2;
+    
   }
 
   img {
@@ -634,6 +661,38 @@ aside .container {
     position: relative;
     z-index: 3;
     color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+
+    h3 {
+      position: relative;
+      transform: translateY(450px);
+      transition: 0.5s ease;
+      
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 3px;
+        background-color: var(--orange);
+        bottom: -0.5rem;
+        left: 0;
+        transition: 0.5s ease;
+        transition-delay: 0s;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+    }
+
+    p {
+      // transform: translateX(-100%);
+      filter: blur(5px);
+      opacity: 0;
+      margin-top: 1rem;
+    }
+
   }
 }
 
@@ -727,7 +786,11 @@ footer {
     }
   }
 
-  .carousel-wrapper.container {
+  #projects .container {
+    padding: 0;
+  }
+
+  .carousel-wrapper-container {
     display: flex;
     flex-direction: column;
     gap: 5rem;
@@ -740,14 +803,17 @@ footer {
 
   .carousel-controls-info {
     order: 1;
-   
-    width: 100%;
+    width: 100vw;
+    padding: 0;
     text-align: center;
+    flex: 1;
   }
 
   .carousel-controls {
     order: 3;
     justify-content: center;
+    align-items: center;
+    width: 100vw;
   }
 
   .carousel {
@@ -795,29 +861,17 @@ footer {
     text-align: center;
   }
 
-  .carousel {
-    left: 34%;
-  }
+ 
 }
 
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
-  .carousel {
-    left: 32%;
-  }
-
 }
 
 @media only screen and (max-width: 490px) {
-  .carousel {
-    left: 30%;
-  }
 }
 
 @media only screen and (max-width: 400px) {
-  .carousel {
-    left: 8%;
-  }
 }
 
 /* Animations */

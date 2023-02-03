@@ -2,6 +2,7 @@
   --banner-height: 1.75rem;
   --nav-bar-height: 3rem;
   --gray: #4c4c4c;
+  --orange: #ffbc20;
 }
 
 /* Animations are coming from https://animate.style/ */
@@ -530,6 +531,16 @@ aside .container {
   height: auto;
   min-height: auto;
   padding: 3rem 0;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #projects > .container {
@@ -539,7 +550,7 @@ aside .container {
   height: auto;
 }
 
-.carousel-wrapper.container {
+.carousel-wrapper-container {
   height: auto;
   display: -ms-grid;
   display: grid;
@@ -550,6 +561,7 @@ aside .container {
   -webkit-column-gap: 3rem;
           column-gap: 3rem;
   padding: 0;
+  position: relative;
 }
 
 .carousel-controls-wrapper {
@@ -563,8 +575,6 @@ aside .container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
-  z-index: 10;
 }
 
 .carousel-controls-info {
@@ -579,7 +589,7 @@ aside .container {
   -ms-grid-row-span: 1;
   grid-row: 1 / span 1;
   position: relative;
-  z-index: 5;
+  z-index: 10;
 }
 
 .carousel-controls-info h2 {
@@ -591,7 +601,7 @@ aside .container {
   text-decoration: none;
   display: inline-block;
   padding: 1rem;
-  background-color: #ffbc20;
+  background-color: var(--orange);
   color: #000;
   border-radius: 30px;
   -webkit-transition: 0.2s ease;
@@ -624,15 +634,15 @@ aside .container {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2 / span 1;
-  position: relative;
   z-index: 5;
+  position: relative;
 }
 
 .carousel-controls .control-btn {
   padding: 1rem;
   width: 50px;
   height: 50px;
-  background-color: #ffbc20;
+  background-color: var(--orange);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -674,20 +684,21 @@ aside .container {
       -ms-flex: 3;
           flex: 3;
   height: 100%;
-  width: 100%;
+  width: auto !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1.5rem;
+  padding: 0 2rem;
+  gap: 2rem;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   position: relative;
+  z-index: 0;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2 / span 1;
@@ -706,9 +717,9 @@ aside .container {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  width: 300px;
+  width: 350px;
   height: 100%;
-  min-height: 400px;
+  min-height: 500px;
   background-color: #4c4c4c;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -717,10 +728,10 @@ aside .container {
   border-radius: 30px;
   position: relative;
   z-index: 1;
+  background-color: transparent;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   overflow: hidden;
-  padding: 1rem;
   text-decoration: none;
 }
 
@@ -732,6 +743,32 @@ aside .container {
 
 .carousel-card:hover .overlay {
   opacity: 1;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.carousel-card:hover .card-content h3 {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.carousel-card:hover .card-content h3::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: 0.8s ease;
+  transition: 0.8s ease;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+
+.carousel-card:hover .card-content p {
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  opacity: 1;
+  -webkit-transition: 0.8s ease;
+  transition: 0.8s ease;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
 }
 
 .carousel-card.currentCard {
@@ -781,6 +818,42 @@ aside .container {
   position: relative;
   z-index: 3;
   color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.carousel-card .card-content h3 {
+  position: relative;
+  -webkit-transform: translateY(450px);
+          transform: translateY(450px);
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.carousel-card .card-content h3::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: var(--orange);
+  bottom: -0.5rem;
+  left: 0;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.carousel-card .card-content p {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  opacity: 0;
+  margin-top: 1rem;
 }
 
 footer {
@@ -864,7 +937,10 @@ footer {
   .nav-bar.solid .hamburger.active > * {
     background-color: #fff;
   }
-  .carousel-wrapper.container {
+  #projects .container {
+    padding: 0;
+  }
+  .carousel-wrapper-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -882,8 +958,12 @@ footer {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-    width: 100%;
+    width: 100vw;
+    padding: 0;
     text-align: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
   .carousel-controls {
     -webkit-box-ordinal-group: 4;
@@ -892,6 +972,10 @@ footer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100vw;
   }
   .carousel {
     -webkit-box-ordinal-group: 3;
@@ -937,30 +1021,9 @@ footer {
     font-size: 1rem;
     text-align: center;
   }
-  .carousel {
-    left: 34%;
-  }
 }
 
 /* For extremely small screen devices (595px and below) */
-@media only screen and (max-width: 595px) {
-  .carousel {
-    left: 32%;
-  }
-}
-
-@media only screen and (max-width: 490px) {
-  .carousel {
-    left: 30%;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .carousel {
-    left: 8%;
-  }
-}
-
 /* Animations */
 @-webkit-keyframes mover {
   0% {
