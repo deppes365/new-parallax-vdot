@@ -1034,7 +1034,7 @@ aside .container {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 30px;
-  overflow: hidden !important;
+  overflow: hidden;
   position: relative;
   -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -1048,6 +1048,7 @@ aside .container {
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
+  border-radius: inherit !important;
 }
 
 #services .services-container .grid img {
