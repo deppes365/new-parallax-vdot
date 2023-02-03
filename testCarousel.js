@@ -31,7 +31,6 @@ const middleIndex = cardNumbersArray.reduce(
 const translateMultipliers = cardNumbersArray.map((num, i) => middleIndex - num)
 
 
-
 function updateCounter() {
   const current = (currentCard + 1).toString().padStart(2, '0')
   const totalCards = carouselCards.length.toString().padStart(2, '0')
