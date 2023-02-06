@@ -2,7 +2,7 @@
   --banner-height: 1.75rem;
   --nav-bar-height: 3rem;
   --gray: #4c4c4c;
-  --orange: #ffbc20;
+  --orange: #f47735;
 }
 
 /* Animations are coming from https://animate.style/ */
@@ -34,7 +34,8 @@ body {
   position: relative;
   width: 100%;
   height: auto;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Heebo', sans-serif;
+  
 }
 
 .container {
@@ -296,8 +297,8 @@ section .container {
 
   background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.3)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
     ),
     url('./assets/images/home-bg.jpg');
   background-size: cover;
@@ -330,6 +331,11 @@ section .container {
   z-index: 0;
 }
 
+.hero-img {
+  filter: drop-shadow(2px 2px 2px #4c4c4c);
+  height: 12rem;
+}
+
 .home-hero-content h1 {
   font-size: 5rem;
 }
@@ -360,7 +366,7 @@ aside {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 188, 32, 0.5);
+  background-color: rgba(244, 119, 53, 0.5);
   backdrop-filter: blur(7px);
 }
 
@@ -1183,6 +1189,10 @@ footer {
   .home-hero-content p {
     font-size: 1rem;
     text-align: center;
+  }
+
+  .hero-img {
+    height: 7rem;
   }
 }
 

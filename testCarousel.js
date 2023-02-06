@@ -9,7 +9,23 @@ let currentCard = 0
 carouselCards[currentCard].classList.add('scaleCard')
 
 carouselCards.forEach((card, i) => {
-    card.setAttribute('data-index', i)
+  card.setAttribute('data-index', i)
+})
+
+carouselCards.forEach((card) => {
+  card.addEventListener('click', (e) => {
+
+    const prevCurrentCard = currentCard
+    currentCard = Number(card.dataset.index)
+
+    if(prevCurrentCard === currentCard) return
+
+    carouselCards[prevCurrentCard].classList.add('hideCard')
+    carouselCards[currentCard].classList.add('scaleCard')
+
+    
+    translateCarousel()
+  })
 })
 
 // carouselCards
@@ -35,7 +51,6 @@ const middleIndex = cardNumbersArray.reduce(
   0
 )
 const translateMultipliers = cardNumbersArray.map((num, i) => middleIndex - num)
-
 
 function updateCounter() {
   const current = (currentCard + 1).toString().padStart(2, '0')
