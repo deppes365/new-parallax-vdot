@@ -8,10 +8,14 @@ const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.nav-links');
 const aside = document.querySelector('aside');
 const heroContent = document.querySelector('.home-hero-content');
+const searchBtn = document.querySelector('.search-btn')
+const searchBar = document.querySelector('.search-container')
+const searchCloseBtn = document.querySelector('.search-container .close-btn')
 
 let bannerHeight = banner.clientHeight;
 let asideHeight = aside.clientHeight;
 let heroContentHeight = heroContent.clientHeight;
+
 
 ///// Event Listeners /////
 
@@ -25,6 +29,15 @@ window.addEventListener('resize', () => {
 		handleMobileMenu();
 	}
 });
+
+searchBtn.addEventListener('click', (e) => {
+	e.preventDefault()
+	searchBar.classList.toggle('show')
+})
+
+searchCloseBtn.addEventListener('click', () => {
+	searchBar.classList.remove('show')
+})
 
 // Function to make hero content fade out on scroll up
 window.addEventListener('scroll', () => {

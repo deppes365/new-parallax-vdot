@@ -14,9 +14,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome script -->
     <script
       src="https://kit.fontawesome.com/eee972efca.js"
@@ -40,52 +43,92 @@
             />
             <p>A Commonwealth of Virginia Website</p>
           </div>
-
           <div class="banner-links">
             <a href="">Find an Agency</a>
             <a href="">Virginia.gov</a>
           </div>
         </div>
       </div>
-      <div class="nav-bar">
-        <div class="container">
-          <div class="website-logo">
-            <h2 class="animate__animated animate__fadeIn">Parallax</h2>
-          </div>
-          <ul class="nav-links inactive animate__animated animate__fadeIn">
-            <li>
-              <a data-link="home" class="nav-link active-link" href="#home"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a data-link="about" class="nav-link" href="#about">About</a>
-            </li>
-            <li>
-              <a data-link="projects" class="nav-link" href="#projects"
-                >Projects</a
-              >
-            </li>
-            <li>
-              <a data-link="services" class="nav-link" href="#services"
-                >Services</a
-              >
-            </li>
-            <li class="sub-links">
-              <div>
-                <a href="">Find an Agency</a>
-                <a href="">Virginia.gov</a>
-              </div>
-            </li>
-          </ul>
-          <div class="hamburger animate__animated animate__fadeIn">
-            <div class="top-line"></div>
-            <div class="middle-line"></div>
-            <div class="bottom-line"></div>
-          </div>
-        </div>
+      <div class="blue-nav">
+        <ul class="blue-nav-links">
+          <!-- <li class="blue-nav-link">ABOUT</li>
+          <li class="blue-nav-link">JOBS</li>
+          <li class="blue-nav-link">CONTACT</li> -->
+          <li class="accessibility">
+            <img
+              src="https://mplshdrshared.com/vdot/terminal4/images/icon-accessibility-no-outer-circle.svg"
+              alt="accessibility icon"
+            />
+            <p>Accessibility</p>
+          </li>
+          <li class="language">
+            <img
+              src="https://mplshdrshared.com/vdot/terminal4/images/icon-translate.svg"
+              alt="language icon"
+            />
+            <p>English</p>
+          </li>
+        </ul>
       </div>
     </header>
+    <div class="nav-bar">
+      <div class="container">
+        <div class="website-logo">
+          <img
+            src="./assets/images/vdot-logo.png"
+            alt="Vdot logo"
+            class="animate__animated animate__fadeIn"
+          />
+        </div>
+        <ul class="nav-links inactive animate__animated animate__fadeIn">
+          <li>
+            <a data-link="home" class="nav-link active-link" href="#home"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a data-link="about" class="nav-link" href="#about">About</a>
+          </li>
+          <li>
+            <a data-link="projects" class="nav-link" href="#projects"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a data-link="services" class="nav-link" href="#services"
+              >Services</a
+            >
+          </li>
+          <li>
+            <button data-link="search" class="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+          </li>
+          <li class="sub-links">
+            <div>
+              <a href="">Find an Agency</a>
+              <a href="">Virginia.gov</a>
+            </div>
+          </li>
+          <div class="search-container">
+            <div class="close-btn">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <input
+              type="text"
+              name="site-search"
+              id="site-search"
+              placeholder="Search the site"
+            />
+          </div>
+        </ul>
+        <div class="hamburger animate__animated animate__fadeIn">
+          <div class="top-line"></div>
+          <div class="middle-line"></div>
+          <div class="bottom-line"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- Home Section -->
     <section id="home">
@@ -93,7 +136,11 @@
       <div class="container">
         <div class="home-hero">
           <div class="home-hero-content">
-            <img src="./assets/images/vdot-logo-white.png" class="hero-img animate__animated animate__fadeInUp" alt="vdot logo">
+            <img
+              src="./assets/images/vdot-logo-white.png"
+              class="hero-img animate__animated animate__fadeInUp"
+              alt="vdot logo"
+            />
             <!-- <h1
               style="color: #fff; text-align: center;"
               class="hero-title animate__animated animate__fadeInUp"
@@ -131,12 +178,27 @@
     <section id="about">
       <div class="container">
         <h1 class="section-title">About Us</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, consectetur consequuntur. Maiores optio nesciunt assumenda officia sed placeat velit omnis cupiditate doloremque porro voluptas suscipit et, autem corporis, deleniti iste, quo dicta asperiores beatae? Eum at maxime ipsam voluptate nulla dolorum enim expedita minus, corporis non ex asperiores? Exercitationem, reiciendis?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse consequatur obcaecati iusto autem deleniti sequi cupiditate debitis excepturi consectetur, odit animi, repellat tenetur deserunt reprehenderit, veniam unde distinctio labore velit tempore nihil voluptatem! Facere reprehenderit, odit voluptatum eaque eligendi, quae impedit expedita distinctio perferendis eveniet magni saepe. Maxime, placeat reprehenderit?</p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia,
+          consectetur consequuntur. Maiores optio nesciunt assumenda officia sed
+          placeat velit omnis cupiditate doloremque porro voluptas suscipit et,
+          autem corporis, deleniti iste, quo dicta asperiores beatae? Eum at
+          maxime ipsam voluptate nulla dolorum enim expedita minus, corporis non
+          ex asperiores? Exercitationem, reiciendis?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+          consequatur obcaecati iusto autem deleniti sequi cupiditate debitis
+          excepturi consectetur, odit animi, repellat tenetur deserunt
+          reprehenderit, veniam unde distinctio labore velit tempore nihil
+          voluptatem! Facere reprehenderit, odit voluptatum eaque eligendi, quae
+          impedit expedita distinctio perferendis eveniet magni saepe. Maxime,
+          placeat reprehenderit?
+        </p>
 
         <div class="staff-container">
           <div class="staff-card">
-            <img src="/assets/images/teamImages/jonathan-wright.jpg" alt="">
+            <img src="/assets/images/teamImages/jonathan-wright.jpg" alt="" />
             <div class="staff-info">
               <h3>Johnathan Wright</h3>
               <p>Director</p>
@@ -144,35 +206,33 @@
           </div>
 
           <div class="staff-card">
-            <img src="/assets//images/teamImages/christina-wolf.jpg" alt="">
+            <img src="/assets//images/teamImages/christina-wolf.jpg" alt="" />
             <div class="staff-info">
               <h3>Christina Wolf</h3>
               <p>Assistant Director</p>
             </div>
           </div>
           <div class="staff-card">
-            <img src="/assets/images/teamImages/elizabeth-stowell.jpg" alt="">
+            <img src="/assets/images/teamImages/elizabeth-stowell.jpg" alt="" />
             <div class="staff-info">
               <h3>Elizabeth Stowell</h3>
               <p>Lead Graphic Designer</p>
             </div>
           </div>
           <div class="staff-card">
-            <img src="/assets/images/teamImages/david-chan.jpg" alt="">
+            <img src="/assets/images/teamImages/david-chan.jpg" alt="" />
             <div class="staff-info">
               <h3>David Chan</h3>
               <p>Lead Software Developer</p>
             </div>
           </div>
           <div class="staff-card">
-            <img src="/assets/images/teamImages/chelsea-robinson.jpg" alt="">
+            <img src="/assets/images/teamImages/chelsea-robinson.jpg" alt="" />
             <div class="staff-info">
               <h3>Chelsea Robinson</h3>
               <p>Lead Sales Manager</p>
             </div>
           </div>
-         
-         
         </div>
       </div>
     </section>
@@ -180,43 +240,63 @@
     <!-- projects Section -->
     <section id="projects">
       <div class="container">
-        
-          
-        
         <div class="carousel-wrapper-container">
           <div class="carousel-controls-info">
             <h3>PROJECTS</h3>
             <h2>Our Projects Across<br />the US</h2>
             <a href="#">DISCOVER OUR HIGHWAYS</a>
           </div>
-          
+
           <div class="carousel">
             <div class="carousel-card">
               <div class="overlay"></div>
               <img src="./assets/images/mountain-highway.jpg" alt="" />
               <div class="card-content">
-                  <h2>Title</h2>
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta voluptatem consequatur accusantium labore ea quisquam nam reiciendis at animi quaerat fugiat impedit ab, voluptates doloremque, iusto officiis a. Fugit accusamus fuga pariatur ipsum deleniti cumque eos illo nemo a? Ex iusto maxime magnam, architecto ab consectetur debitis repudiandae quasi iste.</p>
-                  <a href="">See More</a>
-              </div>
-            </div>
-
-            <div class="carousel-card" >
-              <div class="overlay"></div>
-              <img src="./assets/images/bridge.jpg" alt="" />
-              <div class="card-content">
                 <h2>Title</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe reiciendis quisquam sapiente fuga quod itaque voluptatibus adipisci, quos velit sint eum impedit amet rem perspiciatis provident consectetur, dolores nam, omnis optio dolorum? Accusamus voluptatem suscipit explicabo, nesciunt odit pariatur nostrum velit officiis minus excepturi, eum numquam maxime. Similique, qui natus.</p>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Dicta voluptatem consequatur accusantium labore ea quisquam
+                  nam reiciendis at animi quaerat fugiat impedit ab, voluptates
+                  doloremque, iusto officiis a. Fugit accusamus fuga pariatur
+                  ipsum deleniti cumque eos illo nemo a? Ex iusto maxime magnam,
+                  architecto ab consectetur debitis repudiandae quasi iste.
+                </p>
                 <a href="">See More</a>
               </div>
             </div>
 
-            <div class="carousel-card" >
+            <div class="carousel-card">
+              <div class="overlay"></div>
+              <img src="./assets/images/bridge.jpg" alt="" />
+              <div class="card-content">
+                <h2>Title</h2>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Saepe reiciendis quisquam sapiente fuga quod itaque
+                  voluptatibus adipisci, quos velit sint eum impedit amet rem
+                  perspiciatis provident consectetur, dolores nam, omnis optio
+                  dolorum? Accusamus voluptatem suscipit explicabo, nesciunt
+                  odit pariatur nostrum velit officiis minus excepturi, eum
+                  numquam maxime. Similique, qui natus.
+                </p>
+                <a href="">See More</a>
+              </div>
+            </div>
+
+            <div class="carousel-card">
               <div class="overlay"></div>
               <img src="./assets/images/plane.jpg" alt="" />
               <div class="card-content">
                 <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, itaque delectus fugiat cum sequi ipsa quos, adipisci, architecto ex et ea natus sint accusantium commodi aut fugit. Exercitationem accusantium ipsa autem quam inventore soluta ipsam voluptatum quia eveniet, commodi ullam doloremque velit necessitatibus pariatur! Debitis consequuntur quod corporis qui doloribus?</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed,
+                  itaque delectus fugiat cum sequi ipsa quos, adipisci,
+                  architecto ex et ea natus sint accusantium commodi aut fugit.
+                  Exercitationem accusantium ipsa autem quam inventore soluta
+                  ipsam voluptatum quia eveniet, commodi ullam doloremque velit
+                  necessitatibus pariatur! Debitis consequuntur quod corporis
+                  qui doloribus?
+                </p>
                 <a href="">See More</a>
               </div>
             </div>
@@ -226,23 +306,35 @@
               <img src="./assets/images/city.jpg" alt="" />
               <div class="card-content">
                 <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero alias eius, in ea voluptas nobis obcaecati fuga debitis eum. Quasi dicta facilis consequatur, officiis dolore voluptate eaque veniam ducimus nisi enim voluptates iure. Quaerat quisquam ea, vero officia repudiandae ipsum, sequi repellendus eligendi earum ex error ad, dolorum temporibus non?</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero
+                  alias eius, in ea voluptas nobis obcaecati fuga debitis eum.
+                  Quasi dicta facilis consequatur, officiis dolore voluptate
+                  eaque veniam ducimus nisi enim voluptates iure. Quaerat
+                  quisquam ea, vero officia repudiandae ipsum, sequi repellendus
+                  eligendi earum ex error ad, dolorum temporibus non?
+                </p>
                 <a href="">See More</a>
-                
               </div>
             </div>
 
-            <div class="carousel-card" >
+            <div class="carousel-card">
               <div class="overlay"></div>
               <img src="./assets/images/train.jpg" alt="" />
               <div class="card-content">
                 <h2>Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure suscipit vitae omnis. Velit voluptatem deserunt provident laborum minus, blanditiis reprehenderit cum ex ipsam possimus, maxime, facere non? Suscipit porro laborum modi hic quisquam? Nam et distinctio quia ducimus molestiae quisquam, corporis sint rerum sed autem corrupti inventore accusantium doloribus exercitationem!</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+                  suscipit vitae omnis. Velit voluptatem deserunt provident
+                  laborum minus, blanditiis reprehenderit cum ex ipsam possimus,
+                  maxime, facere non? Suscipit porro laborum modi hic quisquam?
+                  Nam et distinctio quia ducimus molestiae quisquam, corporis
+                  sint rerum sed autem corrupti inventore accusantium doloribus
+                  exercitationem!
+                </p>
                 <a href="">See More</a>
               </div>
             </div>
-
-            
           </div>
           <div class="carousel-controls">
             <div class="control-btn prev-btn">
@@ -259,46 +351,71 @@
       </div>
     </section>
 
-    
     <section id="services">
       <div class="container">
         <div class="services-container">
           <div class="services-info">
             <h3>WE OFFER A WIDE VARIETY OF SERVICES</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quisquam optio ad. Optio in, veritatis consequatur, dolor, iusto minima nesciunt atque sint odit ullam a. Excepturi doloribus tenetur nam corporis enim, quisquam rem iure perspiciatis fuga modi error, sunt possimus?</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic
+              quisquam optio ad. Optio in, veritatis consequatur, dolor, iusto
+              minima nesciunt atque sint odit ullam a. Excepturi doloribus
+              tenetur nam corporis enim, quisquam rem iure perspiciatis fuga
+              modi error, sunt possimus?
+            </p>
             <a href="#about" class="button"><p>More Services</p></a>
           </div>
           <div class="services-grid">
             <div class="grid grid1">
               <div class="overlay"></div>
-              <img src="/assets//images/serviceImages/parking.jpg" alt="">
+              <img src="/assets//images/serviceImages/parking.jpg" alt="" />
               <div class="grid-content">
                 <h2>Parking</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima libero dolor architecto eveniet corporis, quibusdam repellat non laudantium quaerat, obcaecati repudiandae ipsum consectetur nobis dolore?</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Minima libero dolor architecto eveniet corporis, quibusdam
+                  repellat non laudantium quaerat, obcaecati repudiandae ipsum
+                  consectetur nobis dolore?
+                </p>
               </div>
             </div>
             <div class="grid grid2">
               <div class="overlay"></div>
-              <img src="/assets//images/serviceImages/bill-pay.jpg" alt="">
+              <img src="/assets//images/serviceImages/bill-pay.jpg" alt="" />
               <div class="grid-content">
                 <h2>Bill Pay</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima libero dolor architecto eveniet corporis, quibusdam repellat non laudantium quaerat, obcaecati repudiandae ipsum consectetur nobis dolore?</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Minima libero dolor architecto eveniet corporis, quibusdam
+                  repellat non laudantium quaerat, obcaecati repudiandae ipsum
+                  consectetur nobis dolore?
+                </p>
               </div>
             </div>
             <div class="grid grid3">
               <div class="overlay"></div>
-              <img src="/assets//images/serviceImages/issue.jpg" alt="">
+              <img src="/assets//images/serviceImages/issue.jpg" alt="" />
               <div class="grid-content">
                 <h2>Report an Issuse</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima libero dolor architecto eveniet corporis, quibusdam repellat non laudantium quaerat, obcaecati repudiandae ipsum consectetur nobis dolore?</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Minima libero dolor architecto eveniet corporis, quibusdam
+                  repellat non laudantium quaerat, obcaecati repudiandae ipsum
+                  consectetur nobis dolore?
+                </p>
               </div>
             </div>
             <div class="grid grid4">
               <div class="overlay"></div>
-              <img src="/assets//images/serviceImages/quote.jpg" alt="">
+              <img src="/assets//images/serviceImages/quote.jpg" alt="" />
               <div class="grid-content">
                 <h2>Get a quote</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima libero dolor architecto eveniet corporis, quibusdam repellat non laudantium quaerat, obcaecati repudiandae ipsum consectetur nobis dolore?</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Minima libero dolor architecto eveniet corporis, quibusdam
+                  repellat non laudantium quaerat, obcaecati repudiandae ipsum
+                  consectetur nobis dolore?
+                </p>
               </div>
             </div>
           </div>
@@ -307,31 +424,99 @@
     </section>
 
     <footer>
-      <div class="container">
-        <div class="links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#services">Services</a>
+      <div class="top-nav">
+        <div class="social-links">
+          <a href="" style="background-color: #005daa"
+            ><img src="./assets/icons/social-facebook.png" alt=""
+          /></a>
+          <a href="" style="background-color: #0070cc"
+            ><img src="./assets/icons/social-twitter.png" alt=""
+          /></a>
+          <a href="" style="background-color: #0082ee"
+            ><img src="./assets/icons/social-linkedin.png" alt=""
+          /></a>
+          <a href="" style="background-color: #1193ff"
+            ><img src="./assets/icons/social-instagram.png" alt=""
+          /></a>
+          <a href="" style="background-color: #33a3ff"
+            ><img src="./assets/icons/social-flickr.png" alt=""
+          /></a>
+          <a href="" style="background-color: #55b2ff"
+            ><img src="./assets/icons/social-youtube.png" alt=""
+          /></a>
         </div>
-        <div class="contact-info">
-          <div class="contact">
-            <span>Phone:</span>
-            <span>1(804)555-5555</span>
-          </div>
-          <div class="contact">
-            <span>Address:</span>
-            <span>123 Main St. Richmond, Va 23225</span>
-          </div>
-          <div class="contact">
-            <span>Email:</span>
-            <span>email@email.com</span>
-          </div>
+        <div class="footer-links">
+          <a href="">Civil Rights</a>
+          <a href="">Policies</a>
+          <a href="">Accessibility</a>
         </div>
       </div>
+
+      <div class="footer-nav-links-container">
+        <div class="footer-nav-links">
+          <div class="main-link-container">
+            <a href="" class="main-link">Home</a>
+            <a href="" class="top-pages"
+              ><img src="./assets/icons/icon-flag.png" alt="" />
+              <p>Top pages</p></a
+            >
+          </div>
+
+          <ul>
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-links">
+          <div class="main-link-container">
+            <a href="" class="main-link">About</a>
+            <a href="" class="top-pages"
+              ><img src="./assets/icons/icon-flag.png" alt="" />
+              <p>Top pages</p></a
+            >
+          </div>
+          <ul>
+            <li>
+              <a href="">Link 1</a>
+            </li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-links">
+          <div class="main-link-container">
+            <a href="" class="main-link">Projects</a>
+            <a href="" class="top-pages"
+              ><img src="./assets/icons/icon-flag.png" alt="" />
+              <p>Top pages</p></a
+            >
+          </div>
+          <ul>
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-links">
+          <div class="main-link-container">
+            <a href="" class="main-link">Services</a>
+            <a href="" class="top-pages"
+              ><img src="./assets/icons/icon-flag.png" alt="" />
+              <p>Top pages</p></a
+            >
+          </div>
+          <ul>
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">Copyright 2023, VDOT. All rights reserved.</div>
     </footer>
 
     <script src="index.js"></script>
-    <script src="testCarousel.js"></script>
+    <script src="carousel.js"></script>
   </body>
 </html>

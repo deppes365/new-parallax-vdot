@@ -1,93 +1,56 @@
-'use strict'
-
-const carouselBtnPrev = document.querySelector('.control-btn.prev-btn')
-const carouselBtnNext = document.querySelector('.control-btn.next-btn')
 const carousel = document.querySelector('.carousel')
 const carouselCards = document.querySelectorAll('.carousel-card')
-const counter = document.querySelector('.carousel-counter .counter')
+const nextBtn = document.querySelector('.next-btn')
+const prevBtn = document.querySelector('.prev-btn')
+const counter = document.querySelector('.counter')
 
 let currentCard = 0
 
-let screenCenter = window.innerWidth / 2
+carouselCards[currentCard].classList.add('scaleCard')
 
-
-
-
-
-window.addEventListener('resize', () => {
-  screenCenter = window.innerWidth / 2
-
-  if (window.innerWidth <= 889) {
-    const width = carousel.getBoundingClientRect().width / carouselCards.length
-    carousel.style.left = `${screenCenter - (width * (currentCard + 1)) / 2}px`
-
-    //  window.location.reload()
-  }
-  if (window.innerWidth >= 889) {
-    carousel.style.left = '0'
-  }
-
-  translateCarousel()
-
- 
+carouselCards.forEach((card, i) => {
+  card.setAttribute('data-index', i)
 })
 
-updateCounter()
+carouselCards.forEach((card) => {
+  card.addEventListener('click', (e) => {
 
-if (window.innerWidth <= 889) {
-  const width = carousel.getBoundingClientRect().width / carouselCards.length
-  carousel.style.left = `${screenCenter - (width * (currentCard + 1)) / 2}px`
-}
+    const prevCurrentCard = currentCard
+    currentCard = Number(card.dataset.index)
 
-carouselBtnPrev.addEventListener('click', () => {
-  carouselCards[currentCard].classList.remove('currentCard')
+    if(prevCurrentCard === currentCard) return
 
-  currentCard -= 1
+    carouselCards[prevCurrentCard].classList.add('hideCard')
+    carouselCards[currentCard].classList.add('scaleCard')
 
-  if (currentCard < 0) {
-    currentCard = carouselCards.length - 1
-    carouselCards.forEach((card) => card.classList.add('scale-card'))
-  }
-
-  carouselCards[currentCard].classList.remove('scale-card')
-  carouselCards[currentCard].classList.add('currentCard')
-
-  translateCarousel()
-
-  updateCounter()
-
+    
+    translateCarousel()
+  })
 })
 
-carouselBtnNext.addEventListener('click', () => {
-  carouselCards[currentCard].classList.remove('currentCard')
-  currentCard += 1
+// carouselCards
 
-  if (currentCard > carouselCards.length - 1) {
-    currentCard = 0
+let cardWidth = carouselCards[0].getBoundingClientRect().width
 
-    for (let i = carouselCards.length; i > 0; i--) {
-      carouselCards[i - 1].classList.remove('scale-card')
-      carouselCards[i - 1].classList.remove('currentCard')
-    }
+let widthOfCards =
+  carouselCards[carouselCards.length - 1].getBoundingClientRect().right -
+  carouselCards[0].getBoundingClientRect().left
 
-    carousel.style.transform = 'translateX(0)'
+let remainingSpace = widthOfCards - cardWidth * carouselCards.length
 
-    setTimeout(() => {
-      carouselCards[currentCard].classList.add('currentCard')
-    }, 300)
+const divider = carouselCards.length - 1
 
-    updateCounter()
-    return
-  }
+const cardGap = remainingSpace / divider
 
-  carouselCards[currentCard].classList.add('currentCard')
+const cardNumbersArray = Array.prototype.slice
+  .call(carouselCards)
+  .map((card, i) => i + 1)
 
-  carouselCards[currentCard - 1].classList.add('scale-card')
-
-  translateCarousel()
-
-  updateCounter()
-})
+const middleIndex = cardNumbersArray.reduce(
+  (acc, cur) => acc + cur / carouselCards.length,
+  0
+)
+const translateMultipliers = cardNumbersArray.map((num, i) => middleIndex - num)
 
 function updateCounter() {
   const current = (currentCard + 1).toString().padStart(2, '0')
@@ -96,110 +59,65 @@ function updateCounter() {
   return (counter.innerHTML = `${current} of ${totalCards}`)
 }
 
-function scaleCard(direction) {
-  const current = currentCard
+function translateCarousel() {
+  carousel.style.left = `${
+    cardWidth * translateMultipliers[currentCard] +
+    cardGap * translateMultipliers[currentCard]
+  }px`
 
-  if (direction === 'next') {
-    carouselCards[current].classList.add('scale-card')
-  }
-
-  if (direction === 'prev') {
-    carouselCards[current].classList.remove('scale-card')
-  }
+  updateCounter()
 }
 
-const cardWidth = carouselCards[0].getBoundingClientRect().width
+translateCarousel()
 
-function translateCarousel() {
-  if (window.innerWidth >= 889) {
-    const translatePercent =
-      (carousel.getBoundingClientRect().width /
-        carouselCards.length /
-        carousel.getBoundingClientRect().width) *
-      100
+nextBtn.addEventListener('click', (e) => {
+  e.preventDefault()
 
-    carousel.style.transform = `translateX(-${translatePercent * currentCard}%)`
+  currentCard += 1
+
+  if (currentCard >= carouselCards.length) {
+    carouselCards.forEach((card) => {
+      card.classList.remove('hideCard')
+      card.classList.remove('scaleCard')
+    })
+
+    currentCard = 0
+
+    translateCarousel()
+
+    carouselCards[currentCard].classList.add('scaleCard')
 
     return
   }
 
-  if (window.innerWidth < 889) {
+  translateCarousel()
 
-    carousel.style.transform = `translateX(0)`
+  if (carouselCards[currentCard - 1] === undefined) return
 
-    
-    console.log(`card width: ${cardWidth}`);
+  carouselCards[currentCard - 1].classList.add('hideCard')
+  carouselCards[currentCard - 1].classList.remove('scaleCard')
+  carouselCards[currentCard].classList.add('scaleCard')
+})
 
-    const widthOfCards =
-      carouselCards[carouselCards.length - 1].getBoundingClientRect().right -
-      carouselCards[0].getBoundingClientRect().left
+prevBtn.addEventListener('click', (e) => {
+  e.preventDefault()
 
-      console.log(`width of Cards: ${widthOfCards}`);
+  carouselCards[currentCard].classList.remove('scaleCard')
 
-    const remainingSpace = widthOfCards - cardWidth * carouselCards.length
+  currentCard -= 1
+  if (currentCard < 0) {
+    currentCard = carouselCards.length - 1
 
-    const divider = carouselCards.length - 1
+    carouselCards.forEach((card) => {
+      card.classList.add('hideCard')
+    })
 
-    const cardGap = remainingSpace / divider
-
-    const cardNumbersArray = Array.prototype.slice
-      .call(carouselCards)
-      .map((card, i) => i + 1)
-
-    const middleIndex = cardNumbersArray.reduce(
-      (acc, cur) => acc + cur / carouselCards.length,
-      0
-    )
-
-    const translateMultipliers = cardNumbersArray.map(
-      (num, i) => middleIndex - num
-    )
-
-    carousel.style.left = `${
-      cardWidth * translateMultipliers[currentCard] +
-      cardGap * translateMultipliers[currentCard]
-    }px`
-
-   
+    carouselCards[currentCard].classList.remove('hideCard')
+    carouselCards[currentCard].classList.add('scaleCard')
   }
-}
 
-carousel.style.left = '0'
-carousel.style.transform = 'translateX(0)'
+  carouselCards[currentCard].classList.remove('hideCard')
+  carouselCards[currentCard].classList.add('scaleCard')
 
-//////// NEW FUNCTION ////////
-
-// function translateCarousel() {
-//     // Get width
-//     const cardWidth = carouselCards[0].getBoundingClientRect().width;
-
-// 	const widthOfCards =
-// 		carouselCards[carouselCards.length - 1].getBoundingClientRect().right -
-// 		carouselCards[0].getBoundingClientRect().left;
-
-// 	const remainingSpace = widthOfCards - cardWidth * carouselCards.length;
-
-// 	const divider = carouselCards.length - 1;
-
-// 	const cardGap = remainingSpace / divider;
-
-// 	const cardNumbersArray = Array.prototype.slice
-// 		.call(carouselCards)
-// 		.map((card, i) => i + 1);
-
-// 	const middleIndex = cardNumbersArray.reduce(
-// 		(acc, cur) => acc + cur / carouselCards.length,
-// 		0
-// 	);
-
-// 	const translateMultipliers = cardNumbersArray.map(
-// 		(num, i) => middleIndex - num
-// 	);
-
-// 	carousel.style.left = `${
-// 		cardWidth * translateMultipliers[currentCard] +
-// 		cardGap * translateMultipliers[currentCard]
-// 	}px`;
-// }
-
-// translateCarousel();
+  translateCarousel()
+})
